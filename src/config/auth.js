@@ -9,8 +9,6 @@ export const logout = history => {
 };
 
 export const isLoggedIn = () => {
-  if (localStorage.getItem('excelId')) {
-    return true;
-  }
-  return false;
+  return !!localStorage.getItem('excelId');
+
 };
