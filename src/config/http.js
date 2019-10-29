@@ -19,11 +19,14 @@ export const get1 = url => {
 };
 
 export const post2 = (url, data) => {
-  return fetch(url, {
+  return fetch(`http://13.233.133.214/api${url}`, {
     method: 'POST',
     body: data,
   })
-    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      return res;
+    })
     .catch(err => err);
 };
 
