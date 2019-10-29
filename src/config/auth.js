@@ -7,3 +7,10 @@ export const logout = history => {
   localStorage.removeItem('excelId');
   history.push('/login');
 };
+
+export const isLoggedIn = () => {
+  if (localStorage.getItem('excelId')) {
+    return true;
+  }
+  return false;
+};
