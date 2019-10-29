@@ -36,7 +36,7 @@ const TopNav = () => {
           </li>
         </ul>
       </div>
-      {!localStorage.getItem('excelId')?(
+      {localStorage.getItem('excelId')?(
         <span
         className="navbar-brand link-item"
         data-toggle="modal"
