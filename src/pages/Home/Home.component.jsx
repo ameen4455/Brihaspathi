@@ -19,7 +19,7 @@ const Event = ({ i, name, id, is_active, event_ended }) => {
     status = 'Finished';
   }
   return (
-    <Link to={`/prilims/${id}`}>
+    <Link to={`/prelims/${id}`}>
       <div className="sub">
         <div className="dashHead d1">
           <h5>{i + 1}</h5>

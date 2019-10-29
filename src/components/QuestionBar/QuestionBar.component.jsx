@@ -9,7 +9,7 @@ const Question = ({ n, event, id, current }) => {
   }
   return (
     <li className={`list-group-item ${status}`}>
-      <a href={`/prilims/${event}/${id}`}>{n}</a>
+      <a href={`/prelims/${event}/${id}`}>{n}</a>
     </li>
   );
 };

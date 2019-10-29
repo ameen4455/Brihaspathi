@@ -16,8 +16,8 @@ const App = () => (
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout}/>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/prilims/:event" component={PrilimsIntermediate} />
-        <Route path="/prilims/:event/:question" component={Prilims}/>
+        <Route exact path="/prelims/:event" component={PrilimsIntermediate} />
+        <Route path="/prelims/:event/:question" component={Prilims}/>
       </div>
     </Router>
   </Suspense>
