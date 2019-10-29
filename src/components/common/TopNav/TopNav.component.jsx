@@ -36,14 +36,20 @@ const TopNav = () => {
           </li>
         </ul>
       </div>
-
-      <span
+      {!localStorage.getItem('excelId')?(
+        <span
         className="navbar-brand link-item"
         data-toggle="modal"
         data-target="#userProfile"
       >
         <i className="fa fa-user-circle"></i> Ajesh
+      </span>):(
+        <span
+        className="navbar-brand link-item"
+      >
+        <Link to='/login' className="navL" ><i className="fa fa-sign-in"></i> Login</Link>
       </span>
+      )}
     </nav>
   );
 };
