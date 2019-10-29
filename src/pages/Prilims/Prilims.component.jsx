@@ -5,7 +5,7 @@ import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
 
 const Prilims = () => {
   return (
-    <div className="card">
+    <div className="card prilims">
       <div className="card-header">
         <h4 className="card-title">
           <div className="d-flex">

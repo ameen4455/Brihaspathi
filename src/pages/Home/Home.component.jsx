@@ -1,20 +1,29 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getEvents } from '../../config/api';
 import withLogin from '../../HOC/withLogin';
-
 import './Home.style.scss';
 
 const statuses = {
-  selected: 'success',
-  pending: 'info',
-  finished: 'secondary',
+  NotStarted: 'success',
+  Started: 'info',
+  Finished: 'secondary',
 };
 
-const Event = ({ i, name, status }) => {
+const Event = ({ i, name, id, is_active, event_ended }) => {
+  let status = 'NotStarted';
+  if (is_active) {
+    status = 'Started';
+  }
+  if (event_ended) {
+    status = 'Finished';
+  }
   return (
     <tr>
       <th scope="row">{i + 1}</th>
-      <td>{name}</td>
+      <td>
+        <Link to={`/prelims/${id}`}>{name}</Link>
+      </td>
       <td>
         <span className={`btn btn-sm btn-${statuses[status]}`}>{status}</span>
       </td>
@@ -29,6 +38,10 @@ const Events = [
 ];
 
 const Home = () => {
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    getEvents().then(res => setEvents(res.results));
+  }, []);
   return (
     <div className="home">
       <div className="card">
@@ -45,9 +58,9 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {Events.map((e, i) => (
-                <Event {...e} key={i} i={i} />
-              ))}
+              {events.map((e, i) => {
+                return <Event {...e.event} key={i} i={i} />;
+              })}
             </tbody>
           </table>
         </div>
