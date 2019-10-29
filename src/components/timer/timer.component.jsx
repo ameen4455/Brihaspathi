@@ -10,7 +10,7 @@ function Timer(){
                     return sec-1;
                 }else{
                     setMin(min => min-1);
-                    return 60;
+                    return 59;
                 }
             });
         }, 1000);

@@ -7,7 +7,9 @@ import './TopNav.style.scss';
 
 const TopNav = () => {
   return (
+    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark top-nav">
+    <div className="container">
       <button
         className="navbar-toggler mr-auto"
         type="button"
@@ -22,16 +24,11 @@ const TopNav = () => {
 
       <UserProfile />
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="collapse navbar-collapse nv" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Prilims
+              Dashboard
             </Link>
           </li>
         </ul>
@@ -50,6 +47,7 @@ const TopNav = () => {
         <Link to='/login' className="navL" ><i className="fa fa-sign-in"></i> Login</Link>
       </span>
       )}
+      </div>
     </nav>
   );
 };
