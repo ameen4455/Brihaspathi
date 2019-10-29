@@ -2,6 +2,7 @@ import React from 'react';
 import withLogin from '../../HOC/withLogin';
 import Question from '../../components/Question/Question.component';
 import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
+import Timer from '../../components/timer/timer.component';
 
 const Prilims = props => {
   return (
@@ -9,7 +10,7 @@ const Prilims = props => {
       <div>
         <h4>
           <div className="d-flex">
-            <div className="m-1">Time: 00:20:53</div>
+            <div className="m-1">Time: <Timer /></div>
             <div className="flex-grow-1 text-right m-1">
               <button className="btn btn-success btn-lg">Finish</button>
             </div>

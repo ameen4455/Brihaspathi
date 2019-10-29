@@ -7,7 +7,9 @@ import './TopNav.style.scss';
 
 const TopNav = () => {
   return (
+    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark top-nav">
+    <div className="container">
       <button
         className="navbar-toggler mr-auto"
         type="button"
@@ -22,28 +24,30 @@ const TopNav = () => {
 
       <UserProfile />
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="collapse navbar-collapse nv" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Prilims
+              Dashboard
             </Link>
           </li>
         </ul>
       </div>
-
-      <span
+      {localStorage.getItem('excelId')?(
+        <span
         className="navbar-brand link-item"
         data-toggle="modal"
         data-target="#userProfile"
       >
         <i className="fa fa-user-circle"></i> Ajesh
+      </span>):(
+        <span
+        className="navbar-brand link-item"
+      >
+        <Link to='/login' className="navL" ><i className="fa fa-sign-in"></i> Login</Link>
       </span>
+      )}
+      </div>
     </nav>
   );
 };

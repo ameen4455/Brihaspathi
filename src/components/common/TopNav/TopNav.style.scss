@@ -2,4 +2,16 @@
   span.link-item{
     cursor: pointer;
   }
+  
+}
+.nv{
+  @media screen and (max-width: 991px) {
+    text-align: center;
+  }
+}
+.navL{
+  color: white;
+}
+.navL :hover{
+  color: white;
 }
