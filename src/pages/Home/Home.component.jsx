@@ -19,15 +19,21 @@ const Event = ({ i, name, id, is_active, event_ended }) => {
     status = 'Finished';
   }
   return (
-    <tr>
-      <th scope="row">{i + 1}</th>
-      <td>
-        <Link to={`/prelims/${id}`}>{name}</Link>
-      </td>
-      <td>
-        <span className={`btn btn-sm btn-${statuses[status]}`}>{status}</span>
-      </td>
-    </tr>
+    <Link to={`/prilims/${id}`}>
+      <div className="sub">
+        <div className="dashHead d1">
+          <h5>{i + 1}</h5>
+        </div>
+        <div className="dashHead d2">
+          <h5>{name}</h5>
+        </div>
+        <div className="dashHead d3">
+          <span className={`btn btn-sm btn-${statuses[status]} hbt`}>
+            {status}
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 };
 
@@ -44,25 +50,27 @@ const Home = () => {
   }, []);
   return (
     <div className="home">
-      <div className="card">
-        <div className="card-header">
-          <h4 className="card-title">Dashboard</h4>
+      <div>
+        <div className="home-title">
+          <h1>Dashboard</h1>
         </div>
-        <div className="card-content collpase show">
-          <table className="table">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Event</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((e, i) => {
-                return <Event {...e.event} key={i} i={i} />;
-              })}
-            </tbody>
-          </table>
+        <div>
+          <div className="main">
+            <div className="dashHead dh1">
+              <h4>#</h4>
+            </div>
+            <div className="dashHead dh2">
+              <h4>Event</h4>
+            </div>
+            <div className="dashHead dh3">
+              <h4>Status</h4>
+            </div>
+          </div>
+          <div className="dashList">
+            {events.map((e, i) => (
+              <Event {...e.event} key={i} i={i} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
