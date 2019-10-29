@@ -13,7 +13,12 @@ const Login = ({ history }) => {
           </div>
         </div>
 
-        <form>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            login(excelId, history);
+          }}
+        >
           <input
             type="text"
             id="excelID"
@@ -23,12 +28,7 @@ const Login = ({ history }) => {
             onChange={e => setExcelId(e.target.value)}
             placeholder="Excel ID"
           />
-          <input
-            type="button"
-            className="fadeIn fourth"
-            value="Log In"
-            onClick={() => login(excelId, history)}
-          />
+          <input type="submit" className="fadeIn fourth" value="Log In" />
         </form>
       </div>
     </div>

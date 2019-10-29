@@ -28,9 +28,12 @@ export const post2 = (url, data) => {
 };
 
 export const get2 = url => {
-  return fetch(url, {
-    credentials: 'include',
+  return fetch(`http://13.233.133.214/api${url}`, {
+    mode: 'cors',
   })
-    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      return res.json();
+    })
     .catch(err => console.log(err));
 };

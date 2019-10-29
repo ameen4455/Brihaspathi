@@ -3,7 +3,7 @@ import withLogin from '../../HOC/withLogin';
 import Question from '../../components/Question/Question.component';
 import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
 
-const Prilims = () => {
+const Prilims = props => {
   return (
     <div className="card prilims">
       <div className="card-header">
@@ -19,10 +19,10 @@ const Prilims = () => {
       <div className="card-content collpase show">
         <div className="d-flex bd-highlight">
           <div className="p-2">
-            <QuestionBar />
+            <QuestionBar {...props} />
           </div>
           <div className="p-2">
-            <Question />
+            <Question {...props} />
           </div>
         </div>
       </div>
