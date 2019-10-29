@@ -20,7 +20,6 @@ const Option = ({ no, val, selected, setSelected, id, answer, clickHan }) => {
 };
 
 const Question = ({ match }) => {
-  const [selected, setSelected] = useState([false, false, false, false]);
   const [question, setQuestion] = useState({});
   const [options, setOptions] = useState([]);
   const [answer, setAnswer] = useState(null);
@@ -32,7 +31,11 @@ const Question = ({ match }) => {
     });
   }, []);
   const clickHan = id => {
-    setAnswer(id);
+    options.map(op => {
+      if (op.id === id) {
+        setAnswer({ answered: id });
+      }
+    });
     sendAnswer(question.id, id, match.params.event);
   };
   return (
@@ -47,8 +50,6 @@ const Question = ({ match }) => {
               val={op.answer}
               id={op.id}
               answer={answer.answered}
-              selected={selected}
-              setSelected={setSelected}
               clickHan={clickHan}
             />
           ))}
