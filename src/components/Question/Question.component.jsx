@@ -8,7 +8,7 @@ const Option = ({ no, val, selected, setSelected }) => {
     ted[no - 1] = true;
     setSelected(ted);
   };
-  let opClass = 'info';
+  let opClass = 'outline-info';
   if (selected[no - 1]) {
     opClass = 'success';
   }
@@ -16,7 +16,7 @@ const Option = ({ no, val, selected, setSelected }) => {
     <div className="col-lg-6">
       <div
         onClick={clickHanh}
-        className={`btn btn-block btn-${opClass} p-2 m-2 option`}
+        className={`optBtn btn btn-block btn-${opClass} p-2 m-2 option`}
       >
         {val}
       </div>
@@ -36,10 +36,10 @@ const Question = ({match}) => {
   }, []);
   console.log(match);
   return (
-    <div className="card shadow p-3 mb-5 bg-white rounded question">
-      <div className="card-body">{question.question}</div>
-      <div className="card-footer">
-        <div className="row">
+   <div className="qBox shadow p-3 mb-5 bg-white rounded question">
+      <div className="qHead" >{question.question}</div>
+      <div >
+        <div className="row qrow">
           {options.map((op, i) => (
             <Option
               no={i}
@@ -51,7 +51,8 @@ const Question = ({match}) => {
           ))}
         </div>
       </div>
-    </div>
+      
+    </div> 
   );
 };
 
