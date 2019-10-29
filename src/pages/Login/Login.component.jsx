@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { login } from '../../config/auth';
 import './Login.style.scss';
 
-const Login = () => {
+const Login = ({ history }) => {
+  const [excelId, setExcelId] = useState('');
   return (
     <div className="wrapper fadeInDown login">
       <div id="formContent">
@@ -17,16 +19,16 @@ const Login = () => {
             id="excelID"
             className="fadeIn second"
             name="excelID"
+            value={excelId}
+            onChange={e => setExcelId(e.target.value)}
             placeholder="Excel ID"
           />
           <input
-            type="text"
-            id="pin"
-            className="fadeIn third"
-            name="pin"
-            placeholder="PIN"
+            type="button"
+            className="fadeIn fourth"
+            value="Log In"
+            onClick={() => login(excelId, history)}
           />
-          <input type="submit" className="fadeIn fourth" value="Log In" />
         </form>
       </div>
     </div>
