@@ -5,6 +5,10 @@ export const getEvents = () => {
   return get1(`/excel_id/events?excel_id=${excelId}`);
 };
 
-export const getQuestion = id => {
-  return get2(`/get-question/${id}`);
+export const getQuestion = questionId => {
+  return get2(`/get-question/${questionId}`);
+};
+
+export const getQuestionIds = eventId => {
+  return get2(`/get-question-list/${eventId}`);
 };
