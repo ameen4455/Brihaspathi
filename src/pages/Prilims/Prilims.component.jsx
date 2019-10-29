@@ -5,13 +5,13 @@ import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
 
 const Prilims = props => {
   return (
-    <div className="card prilims">
-      <div className="card-header">
-        <h4 className="card-title">
+    <div>
+      <div>
+        <h4>
           <div className="d-flex">
-            <div>Time: 00:20:53</div>
-            <div className="flex-grow-1 text-right">
-              <button className="btn btn-success">Finish</button>
+            <div className="m-1">Time: 00:20:53</div>
+            <div className="flex-grow-1 text-right m-1">
+              <button className="btn btn-success btn-lg">Finish</button>
             </div>
           </div>
         </h4>
@@ -21,7 +21,7 @@ const Prilims = props => {
           <div className="p-2">
             <QuestionBar {...props} />
           </div>
-          <div className="p-2">
+          <div className="p-2 flex-grow-1 ansCont">
             <Question {...props} />
           </div>
         </div>
