@@ -1,4 +1,5 @@
 import React from 'react';
+import withLogin from '../../HOC/withLogin';
 import Question from '../../components/Question/Question.component';
 import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
 
@@ -29,4 +30,4 @@ const Prilims = () => {
   );
 };
 
-export default Prilims;
+export default withLogin(Prilims);

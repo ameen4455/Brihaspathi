@@ -1,5 +1,7 @@
 import React from 'react';
 
+import withLogin from '../../HOC/withLogin';
+
 import './Home.style.scss';
 
 const statuses = {
@@ -8,10 +10,10 @@ const statuses = {
   finished: 'secondary',
 };
 
-const Event = ({i, name, status}) => {
+const Event = ({ i, name, status }) => {
   return (
     <tr>
-      <th scope="row">{i+1}</th>
+      <th scope="row">{i + 1}</th>
       <td>{name}</td>
       <td>
         <span className={`btn btn-sm btn-${statuses[status]}`}>{status}</span>
@@ -44,7 +46,7 @@ const Home = () => {
             </thead>
             <tbody>
               {Events.map((e, i) => (
-              <Event {...e} key={i} i={i} />
+                <Event {...e} key={i} i={i} />
               ))}
             </tbody>
           </table>
@@ -54,4 +56,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withLogin(Home);
