@@ -1,5 +1,5 @@
 export const post1 = (url, data) => {
-  return fetch(`http://192.168.43.157:8000/api${url}`, {
+  return fetch(`http://13.233.133.214:8000/api${url}`, {
     method: 'POST',
     body: data,
   })
@@ -8,7 +8,7 @@ export const post1 = (url, data) => {
 };
 
 export const get1 = url => {
-  return fetch(`http://192.168.43.157:8000/api${url}`, {
+  return fetch(`http://13.233.133.214:8000/api${url}`, {
     mode: 'cors',
   })
     .then(res => {

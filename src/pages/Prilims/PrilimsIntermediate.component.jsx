@@ -4,7 +4,8 @@ import { getQuestionIds } from '../../config/api';
 const PrilmsIntermediate = ({ history, match }) => {
   useEffect(() => {
     getQuestionIds(match.params.event).then(res => {
-      history.push(`/prelims/${match.params.event}/${res[0]}`);
+      console.log(res);
+      history.push(`/prelims/${match.params.event}/${res.questions[0]}`);
     });
   });
   return <div>Loading</div>;

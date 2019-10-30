@@ -11,7 +11,8 @@ export const getQuestion = questionId => {
 };
 
 export const getQuestionIds = eventId => {
-  return get2(`/get-question-list/${eventId}`);
+  const excelId = localStorage.getItem('excelId');
+  return get2(`/get-question-list/${eventId}/${excelId}`);
 };
 
 export const setAnswer = (question, answer, event) => {
