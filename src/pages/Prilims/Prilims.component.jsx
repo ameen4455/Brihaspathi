@@ -5,6 +5,18 @@ import QuestionBar from '../../components/QuestionBar/QuestionBar.component';
 import Timer from '../../components/timer/timer.component';
 
 const Prilims = props => {
+  const clickHand = () => {
+    props.history.push('/');
+    fetch('http://13.233.133.214:8000/api/events/1/participants', {
+      method: 'PATCH',
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        "is_prelims_completed": true,
+        "excel_id" : localStorage.getItem('excelId')
+      })
+
+  });
+}
   return (
     <div>
       <div>
@@ -12,7 +24,7 @@ const Prilims = props => {
           <div className="d-flex">
             <div className="m-1">Time: <Timer /></div>
             <div className="flex-grow-1 text-right m-1">
-              <button className="btn btn-success btn-lg">Finish</button>
+              <button onClick={clickHand} className="btn btn-success btn-lg">Finish</button>
             </div>
           </div>
         </h4>

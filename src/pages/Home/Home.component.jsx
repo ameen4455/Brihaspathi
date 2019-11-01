@@ -8,9 +8,11 @@ const statuses = {
   NotStarted: 'success',
   Started: 'info',
   Finished: 'secondary',
+  Submitted: 'primary'
 };
 
-const Event = ({ i, name, id, is_active, event_ended }) => {
+const Event = (props) => {
+  const { i, name, id, is_active, event_ended, prelims_submitted } = props;
   let status = 'NotStarted';
   if (is_active) {
     status = 'Started';
@@ -18,8 +20,19 @@ const Event = ({ i, name, id, is_active, event_ended }) => {
   if (event_ended) {
     status = 'Finished';
   }
+  const clickHand = () => {
+    window.localStorage.setItem('min', 30);
+    window.localStorage.setItem('sec', 1);
+    window.localStorage.setItem(id, JSON.stringify({
+      min : 30,
+      sec : 1
+    }));
+    if(!(is_active == true && event_ended == false && prelims_submitted == false)){
+      alert("sorry");
+    }
+  }
   return (
-    <Link to={`/prelims/${id}`}>
+    <Link onClick={clickHand} to={(is_active == true && event_ended == false && prelims_submitted == false) ? `/prelims/${id}` : `/prelims/${id}`}>
       <div className="sub">
         <div className="dashHead d1">
           <h5>{i + 1}</h5>
