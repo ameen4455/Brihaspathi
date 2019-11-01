@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getQuestionIds } from '../../config/api';
 
 const PrilmsIntermediate = ({ history, match }) => {

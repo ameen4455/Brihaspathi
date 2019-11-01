@@ -51,12 +51,6 @@ const Event = (props) => {
   );
 };
 
-const Events = [
-  { name: 'Algorithms', status: 'selected' },
-  { name: 'Loard of Code', status: 'finished' },
-  { name: 'Debug', status: 'pending' },
-];
-
 const Home = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {

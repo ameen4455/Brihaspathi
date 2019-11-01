@@ -10,7 +10,7 @@ const Option = ({ no, val, selected, setSelected, id, answer, clickHan }) => {
   return (
     <div className="col-lg-6">
       <div
-        onClick={() => clickHan(id)}
+        onClick={() => {clickHan(id)}}
         className={`optBtn btn btn-block btn-${opClass} p-2 m-2 option`}
       >
         {val}

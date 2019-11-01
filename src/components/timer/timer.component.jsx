@@ -6,8 +6,6 @@ const Timer = (props) => {
     const [min, setMin] = useState(JSON.parse(window.localStorage.getItem(props.match.params.event)).min);
     const [sec, setSec] = useState(JSON.parse(window.localStorage.getItem(props.match.params.event)).sec);
 
-    var duration = new Date("02:46:40");
-
     useEffect(()=>{
         let jon = {
             min : min,
