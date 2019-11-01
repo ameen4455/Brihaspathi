@@ -7,8 +7,9 @@ import './Home.style.scss';
 const statuses = {
   NotStarted: 'success',
   Started: 'info',
-  Finished: 'secondary',
-  Submitted: 'primary'
+  Submitted: 'primary',
+  Finished: 'secondary'
+  
 };
 
 const Event = (props) => {
@@ -21,18 +22,18 @@ const Event = (props) => {
     status = 'Finished';
   }
   const clickHand = () => {
-    window.localStorage.setItem('min', 30);
-    window.localStorage.setItem('sec', 1);
-    window.localStorage.setItem(id, JSON.stringify({
-      min : 30,
-      sec : 1
-    }));
-    if(!(is_active == true && event_ended == false && prelims_submitted == false)){
+    if(window.localStorage.getItem(id) === null){
+      window.localStorage.setItem(id, JSON.stringify({
+        min : 30,
+        sec : 1
+      }));
+    }
+    if(!(is_active === true && event_ended === false && prelims_submitted === false)){
       alert("sorry");
     }
   }
   return (
-    <Link onClick={clickHand} to={(is_active == true && event_ended == false && prelims_submitted == false) ? `/prelims/${id}` : `/prelims/${id}`}>
+    <Link onClick={clickHand} to={(is_active === true && event_ended === false && prelims_submitted === false) ? `/prelims/${id}` : '/'}>
       <div className="sub">
         <div className="dashHead d1">
           <h5>{i + 1}</h5>

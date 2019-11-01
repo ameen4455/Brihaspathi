@@ -1,6 +1,6 @@
 export const login = (id, history) => {
   localStorage.setItem('excelId', id);
-  history.push('/');
+  window.location.href = '/';
 };
 
 export const logout = history => {
@@ -10,5 +10,4 @@ export const logout = history => {
 
 export const isLoggedIn = () => {
   return !!localStorage.getItem('excelId');
-
 };

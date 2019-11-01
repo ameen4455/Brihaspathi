@@ -22,7 +22,7 @@ const Prilims = props => {
       <div>
         <h4>
           <div className="d-flex">
-            <div className="m-1">Time: <Timer /></div>
+            <div className="m-1">Time: <Timer  match={props.match}/></div>
             <div className="flex-grow-1 text-right m-1">
               <button onClick={clickHand} className="btn btn-success btn-lg">Finish</button>
             </div>
