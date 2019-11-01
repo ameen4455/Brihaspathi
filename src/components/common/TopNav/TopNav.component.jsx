@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 import UserProfile from './UserProfile/UserProfile.component';
 
 import './TopNav.style.scss';
 
+
+
+
+
+
+
 const TopNav = () => {
+  const [name, setName] = useState();
+  useEffect(() => {
+    fetch(`http://13.233.133.214:8000/api/excel_id?excel_id=EX1`)
+    .then(res => res.json())
+    .then(data => {
+      setName(data[0].name);
+    });
+  }, []);
   return (
     
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark top-nav">
@@ -39,7 +53,7 @@ const TopNav = () => {
         data-toggle="modal"
         data-target="#userProfile"
       >
-        <i className="fa fa-user-circle"></i> Ajesh
+        <i className="fa fa-user-circle"></i> {name}
       </span>):(
         <span
         className="navbar-brand link-item"

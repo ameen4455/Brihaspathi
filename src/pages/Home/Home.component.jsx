@@ -21,6 +21,9 @@ const Event = (props) => {
   if (event_ended) {
     status = 'Finished';
   }
+  if(prelims_submitted){
+    status = 'Submitted';
+  }
   const clickHand = () => {
     if(window.localStorage.getItem(id) === null){
       window.localStorage.setItem(id, JSON.stringify({

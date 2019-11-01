@@ -29,6 +29,11 @@ const Timer = (props) => {
             })
         }, 1000);
     }, []);
+    useEffect(() => {
+        if(min === 0 && sec === 0){
+            props.fun();
+        }
+    })
     
     return(
         <p>

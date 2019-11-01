@@ -7,7 +7,8 @@ import Timer from '../../components/timer/timer.component';
 const Prilims = props => {
   const clickHand = () => {
     props.history.push('/');
-    fetch('http://13.233.133.214:8000/api/events/1/participants', {
+
+    fetch(`http://13.233.133.214:8000/api/events/${props.match.params.event}/participants`, {
       method: 'PATCH',
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify({
@@ -22,7 +23,7 @@ const Prilims = props => {
       <div>
         <h4>
           <div className="d-flex">
-            <div className="m-1">Time: <Timer  match={props.match}/></div>
+            <div className="m-1">Time: <Timer fun = {clickHand}  match={props.match}/></div>
             <div className="flex-grow-1 text-right m-1">
               <button onClick={clickHand} className="btn btn-success btn-lg">Finish</button>
             </div>
