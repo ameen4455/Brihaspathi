@@ -24,13 +24,19 @@ const Event = (props) => {
   if(prelims_submitted){
     status = 'Submitted';
   }
+
   const clickHand = () => {
-    if(window.localStorage.getItem(id) === null){
-      window.localStorage.setItem(id, JSON.stringify({
-        min : 30,
-        sec : 1
-      }));
-    }
+    fetch(`http://13.233.133.214:8000/api/events/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      if(window.localStorage.getItem(id) === null){
+        window.localStorage.setItem(id, JSON.stringify({
+          min : data.duration.split(":")[1],
+          sec : 1
+        }));
+      }
+      });
+    
     if(!(is_active === true && event_ended === false && prelims_submitted === false)){
       alert("sorry");
     }
