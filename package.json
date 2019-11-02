@@ -2,7 +2,7 @@
   "homepage": "https://Afnan-Navaz.github.io/Brihaspathi",
   "name": "brihaspathi",
   "engines": {
-    "node": "10.16.3",
+    "node": "^10.16.3",
   },
   "version": "0.1.0",
   "private": true,
